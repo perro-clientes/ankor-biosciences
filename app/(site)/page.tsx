@@ -1,9 +1,8 @@
-// Placeholder. El sitio público (secciones de Ankor sobre Medlume) es la tarea 6.
+// Placeholder: la home se arma en components/sections.
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-start justify-center gap-6 px-6 py-section">
-      <span className="caption-dot">Ankor Biosciences</span>
-      <h1>Site in progress</h1>
+    <main className="mx-auto w-full max-w-site px-5 py-section-sm md:px-10 lg:py-section">
+      <h1 className="text-display font-medium">Site in progress</h1>
     </main>
   );
 }

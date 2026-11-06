@@ -4,32 +4,33 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
-// Titulares: misma familia que el logotipo. No es variable: hay que listar pesos.
+// Títulos, nombres de items, datos de contacto.
 const rajdhani = Rajdhani({
   variable: "--font-rajdhani",
   subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: ["500", "600", "700"],
+  display: "swap",
 });
 
-// Texto de lectura (300). Incluye griego para el glifo Δ (Δ-8-THC, Δ-9-THC).
+// Párrafos (default del body).
 const roboto = Roboto({
   variable: "--font-roboto",
-  subsets: ["latin", "greek"],
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  display: "swap",
 });
 
-// UI, botones, labels, disclaimers (300–700). Variable.
+// Botones, eyebrows, badges, navegación, disclaimers.
 const chivo = Chivo({
   variable: "--font-chivo",
   subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Ankor Biosciences",
   description: "Ankor Biosciences",
-  icons: {
-    icon: { url: "/meta/favicon.png", type: "image/png" },
-    apple: "/meta/favicon.png",
-  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
