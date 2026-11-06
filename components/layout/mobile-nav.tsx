@@ -30,7 +30,7 @@ function MobileNav() {
       >
         <Menu className="size-5" aria-hidden="true" />
       </SheetTrigger>
-      <SheetContent side="right" className="w-full max-w-xs gap-0 p-6 pt-16">
+      <SheetContent side="right" className="w-full gap-0 p-6 pt-16">
         <SheetTitle className="sr-only">Menu</SheetTitle>
         <SheetDescription className="sr-only">Site navigation</SheetDescription>
         <nav aria-label="Mobile">

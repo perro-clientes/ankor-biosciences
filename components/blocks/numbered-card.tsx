@@ -1,7 +1,7 @@
 /** Número + título, sobre oscuro. */
 function NumberedCard({ number, title }: { number: number; title: string }) {
   return (
-    <li className="flex flex-col gap-12 rounded-card border border-white/22 bg-white/6 p-7">
+    <li className="flex flex-col gap-2 rounded-card border border-white/22 bg-white/6 p-4">
       <span aria-hidden="true" className="font-ui text-eyebrow text-brand-green-light">
         {String(number).padStart(2, "0")}
       </span>
