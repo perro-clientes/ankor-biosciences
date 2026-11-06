@@ -12,8 +12,9 @@ const singleLine = (field: string) =>
 
 /** Schema compartido: validación en el cliente (React Hook Form) y en el servidor (Server Action). */
 export const contactSchema = z.object({
-  name: singleLine("Name")
-    .pipe(z.string().min(2, "Please enter your full name.").max(120, "Name is too long.")),
+  name: singleLine("Name").pipe(
+    z.string().min(2, "Please enter your full name.").max(120, "Name is too long."),
+  ),
   email: z.string().trim().email("Please enter a valid email address.").max(254),
   organization: singleLine("Organization").pipe(z.string().max(160, "Organization is too long.")),
   phone: singleLine("Phone").pipe(

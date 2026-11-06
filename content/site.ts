@@ -245,7 +245,12 @@ export const business = {
   eyebrow: "Business development",
   title: "From growing to extract and packing.",
   lead: "We entail tasks and processes to develop and implement growth opportunities within and between your organization. An A–Z responsive and adaptive partner in the industry for:",
-  partners: ["Distributors", "Wholesalers", "Governments and institutions", "Hospitals and clinics"],
+  partners: [
+    "Distributors",
+    "Wholesalers",
+    "Governments and institutions",
+    "Hospitals and clinics",
+  ],
   cta: { label: "Contact our business development team", href: contactHref("business") },
   image: { src: "/others/back-3.jpg", alt: "", width: 1920, height: 1080 },
 } as const;
@@ -261,7 +266,10 @@ export const exportOpportunities = {
   items: [
     { icon: "documents", text: "Assistance with regulatory documents and certificates" },
     { icon: "updates", text: "Constant information and updates on the industry" },
-    { icon: "global", text: "Dedicated representatives to receive our products into legal jurisdictions" },
+    {
+      icon: "global",
+      text: "Dedicated representatives to receive our products into legal jurisdictions",
+    },
   ],
 } as const;
 

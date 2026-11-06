@@ -14,10 +14,7 @@ function Hero() {
       containerClassName="flex flex-col gap-12 pt-12 pb-12 md:pt-[72px] md:pb-16"
     >
       <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-        <h1
-          id="hero-title"
-          className="max-w-[860px] text-display font-medium text-brand-ink"
-        >
+        <h1 id="hero-title" className="max-w-[860px] text-display font-medium text-brand-ink">
           {hero.titleStart}
           <span className="text-brand-green">{hero.titleAccent}</span>
           {hero.titleEnd}
@@ -51,7 +48,7 @@ function Hero() {
               className="h-11 w-auto"
             />
           </OverlayChip>
-          <OverlayChip className="font-ui text-[0.8125rem] tracking-[0.04em]">
+          <OverlayChip className="font-ui text-eyebrow tracking-[0.04em]">
             <p>{hero.caption}</p>
           </OverlayChip>
         </div>

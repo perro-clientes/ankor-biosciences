@@ -19,7 +19,13 @@ function MobileNav() {
     <Sheet>
       <SheetTrigger
         render={
-          <Button variant="outline" size="icon" icon={null} className="lg:hidden" aria-label="Open menu" />
+          <Button
+            variant="outline"
+            size="icon"
+            icon={null}
+            className="lg:hidden"
+            aria-label="Open menu"
+          />
         }
       >
         <Menu className="size-5" aria-hidden="true" />

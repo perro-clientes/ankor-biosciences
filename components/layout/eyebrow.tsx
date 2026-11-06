@@ -16,7 +16,9 @@ function Eyebrow({ dot = false, className, children, ...props }: EyebrowProps) {
       )}
       {...props}
     >
-      {dot && <span aria-hidden="true" className="block size-2 rounded-pill bg-brand-green-light" />}
+      {dot && (
+        <span aria-hidden="true" className="block size-2 rounded-pill bg-brand-green-light" />
+      )}
       {children}
     </p>
   );

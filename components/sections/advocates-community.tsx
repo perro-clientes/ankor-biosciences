@@ -40,11 +40,7 @@ function AdvocatesCommunity() {
           </ul>
           <div className="flex flex-col gap-3">
             <p className="text-sm font-normal text-ink-muted">{advocates.ctaIntro}</p>
-            <Button
-              href={`mailto:${contact.email}`}
-              icon={Mail}
-              className="self-start normal-case"
-            >
+            <Button href={`mailto:${contact.email}`} icon={Mail} className="self-start normal-case">
               {contact.email}
             </Button>
           </div>

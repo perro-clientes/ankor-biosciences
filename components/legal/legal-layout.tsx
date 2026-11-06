@@ -15,9 +15,7 @@ function formatDate(iso: string) {
 function LegalLayout({ slug }: { slug: LegalSlug }) {
   const page = legalPages[slug];
   const blocks = legalContent[slug];
-  const headings = blocks.filter(
-    (b): b is Extract<LegalBlock, { type: "h2" }> => b.type === "h2",
-  );
+  const headings = blocks.filter((b): b is Extract<LegalBlock, { type: "h2" }> => b.type === "h2");
   const path = `/legal/${slug}`;
 
   return (

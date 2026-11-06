@@ -11,7 +11,11 @@ import { Hero } from "@/components/sections/hero";
 import { InvestorsCta } from "@/components/sections/investors-cta";
 import { ProductPipeline } from "@/components/sections/product-pipeline";
 
-export const metadata: Metadata = pageMetadata({ ...pageMeta.home, path: "/", absoluteTitle: true });
+export const metadata: Metadata = pageMetadata({
+  ...pageMeta.home,
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function Home() {
   return (

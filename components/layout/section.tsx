@@ -57,11 +57,7 @@ function Section({
         </>
       )}
       <Container
-        className={cn(
-          "relative",
-          padded && "py-section-sm lg:py-section",
-          containerClassName,
-        )}
+        className={cn("relative", padded && "py-section-sm lg:py-section", containerClassName)}
       >
         {children}
       </Container>

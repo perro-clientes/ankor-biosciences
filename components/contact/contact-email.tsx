@@ -28,8 +28,23 @@ export function ContactEmail({ name, email, organization, phone, topicLabel, mes
       <Head />
       <Preview>{`${topicLabel} — ${name}`}</Preview>
       <Body style={{ backgroundColor: colors.surface, fontFamily: "Arial, sans-serif", margin: 0 }}>
-        <Container style={{ backgroundColor: "#FFFFFF", padding: "32px", margin: "24px auto", maxWidth: "560px" }}>
-          <Text style={{ color: colors.green, fontSize: "12px", letterSpacing: "0.08em", textTransform: "uppercase", margin: 0 }}>
+        <Container
+          style={{
+            backgroundColor: "#FFFFFF",
+            padding: "32px",
+            margin: "24px auto",
+            maxWidth: "560px",
+          }}
+        >
+          <Text
+            style={{
+              color: colors.green,
+              fontSize: "12px",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              margin: 0,
+            }}
+          >
             ankor-bio.com · Contact form
           </Text>
           <Heading as="h1" style={{ color: colors.ink, fontSize: "22px", margin: "8px 0 24px" }}>
@@ -43,7 +58,15 @@ export function ContactEmail({ name, email, organization, phone, topicLabel, mes
             ))}
           </Section>
           <Hr style={{ borderColor: colors.line, margin: "24px 0" }} />
-          <Text style={{ color: colors.ink, fontSize: "15px", lineHeight: "1.6", whiteSpace: "pre-wrap", margin: 0 }}>
+          <Text
+            style={{
+              color: colors.ink,
+              fontSize: "15px",
+              lineHeight: "1.6",
+              whiteSpace: "pre-wrap",
+              margin: 0,
+            }}
+          >
             {message}
           </Text>
           <Hr style={{ borderColor: colors.line, margin: "24px 0" }} />

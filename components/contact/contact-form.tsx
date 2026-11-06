@@ -24,7 +24,15 @@ import { NativeSelect } from "@/components/ui/native-select";
 import { Textarea } from "@/components/ui/textarea";
 
 const initialState: ContactState = { status: "idle" };
-const fieldOrder: ContactField[] = ["name", "email", "organization", "phone", "topic", "message", "privacy"];
+const fieldOrder: ContactField[] = [
+  "name",
+  "email",
+  "organization",
+  "phone",
+  "topic",
+  "message",
+  "privacy",
+];
 
 function defaultsFromParams(params: URLSearchParams): Partial<ContactInput> {
   const topicParam = params.get("topic");
@@ -114,18 +122,8 @@ function ContactForm({ defaults = {} }: { defaults?: Partial<ContactInput> }) {
     [hint, errors[field] ? `${field}-error` : null].filter(Boolean).join(" ") || undefined;
 
   return (
-    <form
-      action={formAction}
-      onSubmit={onSubmit}
-      noValidate
-      className="flex flex-col gap-5"
-    >
-      <div
-        ref={statusRef}
-        tabIndex={-1}
-        aria-live="polite"
-        className="outline-none empty:hidden"
-      >
+    <form action={formAction} onSubmit={onSubmit} noValidate className="flex flex-col gap-5">
+      <div ref={statusRef} tabIndex={-1} aria-live="polite" className="outline-none empty:hidden">
         {state.status === "success" && (
           <p className="flex items-start gap-3 rounded-card bg-surface-tint p-4 text-body-sm font-normal text-ink-badge">
             <CircleCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-brand-green" />
@@ -257,7 +255,13 @@ function ContactForm({ defaults = {} }: { defaults?: Partial<ContactInput> }) {
       {/* Antispam: honeypot (oculto para personas y lectores) + marca de tiempo. */}
       <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
         <label htmlFor={HONEYPOT_FIELD}>Leave this field empty</label>
-        <input id={HONEYPOT_FIELD} name={HONEYPOT_FIELD} type="text" tabIndex={-1} autoComplete="off" />
+        <input
+          id={HONEYPOT_FIELD}
+          name={HONEYPOT_FIELD}
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </div>
       {/* Sin value/defaultValue: React reescribe el atributo de un hidden en cada render y borraría la marca. */}
       <input ref={startedAtRef} type="hidden" name="startedAt" />
@@ -309,7 +313,10 @@ function Field({
 function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
   return (
-    <p id={`${id}-error`} className="flex items-center gap-1.5 text-sm font-normal text-destructive">
+    <p
+      id={`${id}-error`}
+      className="flex items-center gap-1.5 text-sm font-normal text-destructive"
+    >
       <CircleAlert aria-hidden="true" className="size-4 shrink-0" />
       {message}
     </p>

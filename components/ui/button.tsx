@@ -19,8 +19,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: "gap-1",
-        outline:
-          "gap-2 border border-line-strong bg-surface text-brand-ink hover:bg-surface-tint",
+        outline: "gap-2 border border-line-strong bg-surface text-brand-ink hover:bg-surface-tint",
         inverse: "gap-2 bg-surface text-brand-ink hover:bg-surface-tint",
         ghost: "gap-2 text-brand-ink hover:bg-surface-tint",
       },
@@ -50,8 +49,7 @@ type BaseProps = VariantProps<typeof buttonVariants> & {
 
 type ButtonAsButton = BaseProps &
   Omit<React.ComponentProps<"button">, keyof BaseProps> & { href?: undefined };
-type ButtonAsLink = BaseProps &
-  Omit<React.ComponentProps<"a">, keyof BaseProps> & { href: string };
+type ButtonAsLink = BaseProps & Omit<React.ComponentProps<"a">, keyof BaseProps> & { href: string };
 
 export type ButtonProps = ButtonAsButton | ButtonAsLink;
 

@@ -41,7 +41,7 @@ function ContactSection() {
             <span className="font-heading text-lg font-semibold text-brand-ink">
               {contact.address.building}
             </span>
-            <span className="text-[0.8125rem] font-normal text-ink-muted">
+            <span className="text-eyebrow font-normal tracking-normal text-ink-muted">
               {contact.address.city}, {contact.address.region}
             </span>
           </span>
