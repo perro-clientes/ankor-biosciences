@@ -97,7 +97,7 @@ function Row({
 
 function Value({ children }: { children: React.ReactNode }) {
   return (
-    <span className="font-heading text-card-sm leading-tight font-semibold break-words">
+    <span className="font-heading text-h3-sm leading-tight font-semibold break-words">
       {children}
     </span>
   );
