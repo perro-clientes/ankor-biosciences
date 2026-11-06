@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { contactPage, pageMeta, site } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 import { ContactDetails } from "@/components/blocks/contact-details";
 import { JsonLd } from "@/components/blocks/json-ld";
 import { ContactForm, ContactFormWithParams } from "@/components/contact/contact-form";
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "@/components/layout/section-header";
 
-export const metadata: Metadata = {
-  title: pageMeta.contact.title,
-  description: pageMeta.contact.description,
-  alternates: { canonical: "/contact" },
-};
+export const metadata: Metadata = pageMetadata({ ...pageMeta.contact, path: "/contact" });
 
 export default function ContactPage() {
   return (

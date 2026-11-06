@@ -17,6 +17,13 @@ export const site = {
     dark: { src: "/brand/anlog-dg.svg", alt: "Ankor Biosciences", width: 407, height: 71 },
     light: { src: "/brand/anlog-wh.svg", alt: "Ankor Biosciences", width: 407, height: 71 },
   },
+  // Mismo archivo y alt que app/opengraph-image.jpg / app/twitter-image.jpg (+ .alt.txt).
+  ogImage: {
+    src: "/opengraph-image.jpg",
+    alt: "Person standing in a hemp field at dusk, framed by the Ankor Biosciences hexagon outlines",
+    width: 1200,
+    height: 630,
+  },
 } as const;
 
 export const contact = {
