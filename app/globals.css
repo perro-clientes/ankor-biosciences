@@ -131,6 +131,8 @@
   --text-body--line-height: 1.6;
   --text-body-sm: 0.9375rem; /* 15px */
   --text-body-sm--line-height: 1.55;
+  --text-reading: 1.0625rem; /* 17px: columna de lectura de las legales */
+  --text-reading--line-height: 1.7;
   --text-eyebrow: 0.8125rem; /* 13px */
   --text-eyebrow--letter-spacing: 0.08em;
   --text-button: 0.75rem; /* 12px */
