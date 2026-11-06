@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ankor Biosciences — Home (design reference)</title>
+<!-- DESIGN REFERENCE ONLY: inline styles are for fidelity; implement with Tailwind tokens + components. Image paths assume /img/<original filename>; adjust to public/. -->
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;700&amp;family=Rajdhani:wght@500;600;700&amp;family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#162311;font-family:'Roboto',sans-serif}
+a{color:#517A5F}a:hover{color:#162311}
+*{box-sizing:border-box}
+.pill:hover .pill-label{background:#162311 !important}
+.pill:hover .pill-icon{background:#162311 !important}
+.ghost:hover{background:#E8F0EA !important}
+.navlink:hover{color:#517A5F !important}
+@media (max-width: 900px){.hide-sm{display:none !important}}
+</style>
+
+<div style="width: 100%; background: #FFFFFF; font-family: 'Roboto', sans-serif; color: #162311">
+
+<!-- NAV -->
+<header style="position: relative; z-index: 2; max-width: 1360px; margin: 0 auto; padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+  <a href="#top" aria-label="Ankor Biosciences, inicio" style="display: flex; align-items: center">
+    <img src="/img/anlog-dg.svg" alt="Ankor Biosciences" style="height: 34px; width: auto; display: block">
+  </a>
+  <nav class="hide-sm" aria-label="Principal" style="display: grid; grid-template-columns: repeat(4, minmax(0, auto)); column-gap: 40px; row-gap: 6px; font-family: 'Chivo', sans-serif; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase">
+    <a class="navlink" href="#about" style="color: #162311; text-decoration: none">About us</a>
+    <a class="navlink" href="#investors" style="color: #162311; text-decoration: none">Investors</a>
+    <a class="navlink" href="#products" style="color: #162311; text-decoration: none">Product pipeline</a>
+    <a class="navlink" href="#advocates" style="color: #162311; text-decoration: none">Advocates community</a>
+  </nav>
+  <a class="pill" href="#contact" style="display: flex; align-items: center; gap: 4px; text-decoration: none">
+    <span class="pill-label" style="background: #517A5F; color: #FFFFFF; font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 0 20px; height: 44px; display: flex; align-items: center; border-radius: 999px">Contact us</span>
+    <span class="pill-icon" style="background: #517A5F; width: 44px; height: 44px; border-radius: 999px; display: flex; align-items: center; justify-content: center">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+    </span>
+  </a>
+</header>
+
+<!-- HERO -->
+<section id="top" style="position: relative; overflow: hidden; background: #F4F7F4">
+  
+  <div style="position: relative; max-width: 1360px; margin: 0 auto; padding: 72px 40px 64px; display: flex; flex-direction: column; gap: 48px">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px">
+      <h1 style="margin: 0; max-width: 860px; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: clamp(44px, 6vw, 84px); line-height: 1.02; letter-spacing: -0.01em; color: #162311">Helping to shape the conditions for <span style="color: #517A5F">consistent and safe</span> hemp-derived products, globally.</h1>
+      <div style="max-width: 340px; display: flex; flex-direction: column; gap: 20px">
+        <p style="margin: 0; font-size: 16px; line-height: 1.55; font-weight: 300; color: #3D4A40">Bioscience, agriculture, logistics, pharmaceuticals and regulators working together to deliver the best quality and applied sciences.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <a class="pill" href="#business" style="display: flex; align-items: center; gap: 4px; text-decoration: none">
+            <span class="pill-label" style="background: #517A5F; color: #FFFFFF; font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 0 20px; height: 44px; display: flex; align-items: center; border-radius: 999px">Business development</span>
+            <span class="pill-icon" style="background: #517A5F; width: 44px; height: 44px; border-radius: 999px; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span>
+          </a>
+          <a class="ghost" href="#export" style="display: flex; align-items: center; height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #C9D6CC; background: #FFFFFF; color: #162311; font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none">Export opportunities</a>
+        </div>
+      </div>
+    </div>
+    <div style="position: relative; border-radius: 24px; overflow: hidden; height: clamp(320px, 42vw, 560px); background: #162311">
+      <img src="/img/back.jpg" alt="Brote de cáñamo creciendo en tierra oscura" style="width: 100%; height: 100%; object-fit: cover; object-position: 20% 40%; display: block">
+      <div style="position: absolute; left: 24px; right: 24px; bottom: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+        <div style="background: rgba(22, 35, 17, 0.72); border-radius: 16px; padding: 16px 20px; display: flex; align-items: center; gap: 16px">
+          <img src="/img/logos.svg" alt="Sellos de certificación: USA grown hemp y otros" style="height: 44px; width: auto; display: block">
+        </div>
+        <p style="margin: 0; background: rgba(22, 35, 17, 0.72); border-radius: 16px; padding: 16px 20px; color: #FFFFFF; font-family: 'Chivo', sans-serif; font-size: 13px; letter-spacing: 0.04em">From Colorado Springs to each corner, individual and community in need.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="max-width: 1360px; margin: 0 auto; padding: 120px 40px; display: flex; flex-direction: column; gap: 56px">
+  <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+    <div style="flex: 1 1 220px; display: flex; align-items: center; gap: 10px; padding-top: 12px">
+      
+      <span style="font-family: 'Chivo', sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #3D4A40">About us</span>
+    </div>
+    <h2 style="flex: 3 1 560px; margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.15; color: #162311">A team of humans, with strong roots and passion for the community we choose to globally serve.</h2>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+    <div style="background: #F4F7F4; border-radius: 16px; padding: 32px 28px; display: flex; flex-direction: column; gap: 40px; min-height: 260px">
+      <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#517A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8.66 5v10L12 22l-8.66-5V7z"></path><path d="M9 15l3-7 3 7"></path><path d="M10 13h4"></path></svg>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <h3 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 24px; color: #162311">A team of action</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; font-weight: 300; color: #3D4A40">Getting together the best minds in bioscience, agriculture, logistics, pharmaceuticals and regulators to deliver the best quality and applied sciences.</p>
+      </div>
+    </div>
+    <div style="background: #F4F7F4; border-radius: 16px; padding: 32px 28px; display: flex; flex-direction: column; gap: 40px; min-height: 260px">
+      <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#517A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8.66 5v10L12 22l-8.66-5V7z"></path><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <h3 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 24px; color: #162311">A team of doers</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; font-weight: 300; color: #3D4A40">Helping to shape the conditions and access in remote territories.</p>
+      </div>
+    </div>
+    <div style="background: #F4F7F4; border-radius: 16px; padding: 32px 28px; display: flex; flex-direction: column; gap: 40px; min-height: 260px">
+      <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#517A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8.66 5v10L12 22l-8.66-5V7z"></path><path d="M12 7v3"></path><path d="M12 14a2 2 0 1 0 0 .01"></path><path d="M8 16c1-2 2.5-3 4-3s3 1 4 3"></path></svg>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <h3 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 24px; color: #162311">A team of hope</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; font-weight: 300; color: #3D4A40">In a quest for a brighter future, from the City of Colorado Springs to each corner, individual and community in need.</p>
+      </div>
+    </div>
+    <div style="position: relative; border-radius: 16px; overflow: hidden; min-height: 260px; background: #162311">
+      <img src="/img/back-1.jpg" alt="Persona en un campo de cultivo al atardecer" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT PIPELINE -->
+<section id="products" style="background: #F4F7F4">
+  <div style="max-width: 1360px; margin: 0 auto; padding: 120px 40px; display: flex; flex-direction: column; gap: 56px">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; align-items: center; gap: 10px">
+          
+          <span style="font-family: 'Chivo', sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #3D4A40">Product pipeline</span>
+        </div>
+        <h2 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: clamp(40px, 4.6vw, 64px); line-height: 1; color: #162311">Full spectrum<br>hemp oil.</h2>
+      </div>
+      <p style="margin: 0; max-width: 360px; font-size: 16px; line-height: 1.55; font-weight: 300; color: #3D4A40">Three flavours, one standard. Each bottle is concentrated, 3.38 fl oz (100 ml).</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
+      <article style="background: #FFFFFF; border: 1px solid #E2EBE4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 24px">
+        <div style="background: #F4F7F4; border-radius: 14px; height: 300px; display: flex; align-items: center; justify-content: center">
+          <img src="/img/pack-1.png" alt="Caja de Full Spectrum Hemp Oil sabor naranja" style="height: 270px; width: auto; display: block">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="align-self: flex-start; background: #E8F0EA; color: #3B5A45; font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px">Orange</span>
+          <h3 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 26px; color: #162311">Full Spectrum Hemp Oil</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; font-weight: 300; color: #3D4A40">Orange flavour, concentrated 3.38 fl oz (100 ml).</p>
+        </div>
+        <a class="ghost" href="#contact" style="align-self: flex-start; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #C9D6CC; color: #162311; font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none">Request information <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#162311" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+      </article>
+      <article style="background: #FFFFFF; border: 1px solid #E2EBE4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 24px">
+        <div style="background: #F4F7F4; border-radius: 14px; height: 300px; display: flex; align-items: center; justify-content: center">
+          <img src="/img/pack-2.png" alt="Caja de Full Spectrum Hemp Oil sabor limón" style="height: 270px; width: auto; display: block">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="align-self: flex-start; background: #E8F0EA; color: #3B5A45; font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px">Lemon</span>
+          <h3 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 26px; color: #162311">Full Spectrum Hemp Oil</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; font-weight: 300; color: #3D4A40">Lemon flavour, concentrated 3.38 fl oz (100 ml).</p>
+        </div>
+        <a class="ghost" href="#contact" style="align-self: flex-start; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #C9D6CC; color: #162311; font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none">Request information <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#162311" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+      </article>
+      <article style="background: #FFFFFF; border: 1px solid #E2EBE4; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 24px">
+        <div style="background: #F4F7F4; border-radius: 14px; height: 300px; display: flex; align-items: center; justify-content: center">
+          <img src="/img/pack-3.png" alt="Caja de Full Spectrum Hemp Oil sabor menta" style="height: 270px; width: auto; display: block">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="align-self: flex-start; background: #E8F0EA; color: #3B5A45; font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px">Peppermint</span>
+          <h3 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 26px; color: #162311">Full Spectrum Hemp Oil</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; font-weight: 300; color: #3D4A40">Peppermint flavour, concentrated 3.38 fl oz (100 ml).</p>
+        </div>
+        <a class="ghost" href="#contact" style="align-self: flex-start; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #C9D6CC; color: #162311; font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none">Request information <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#162311" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+      </article>
+    </div>
+    <p style="margin: 0; border: 1px solid #C9D6CC; border-radius: 14px; padding: 16px 20px; font-family: 'Chivo', sans-serif; font-size: 11px; line-height: 1.6; letter-spacing: 0.03em; text-transform: uppercase; color: #3B5A45">Food and Drug Administration (FDA) disclosure: these statements have not been evaluated by the FDA and are not intended to diagnose, treat, or cure any disease. Always check with your physician before starting a new dietary supplement program.</p>
+  </div>
+</section>
+
+<!-- ADVOCATES COMMUNITY -->
+<section id="advocates" style="max-width: 1360px; margin: 0 auto; padding: 120px 40px; display: flex; flex-direction: column; gap: 56px">
+  <div style="display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; align-items: center; gap: 10px">
+      
+      <span style="font-family: 'Chivo', sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #3D4A40">Advocates community</span>
+    </div>
+    <h2 style="margin: 0; max-width: 900px; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: clamp(40px, 4.6vw, 64px); line-height: 1; color: #162311">Safe, pure product where care happens.</h2>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; gap: 16px">
+    <div style="flex: 1 1 520px; position: relative; border-radius: 20px; overflow: hidden; min-height: 460px; background: #162311">
+      <img src="/img/back-2.jpg" alt="Auditorio con profesionales de la salud en una conferencia" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+      <div style="position: absolute; left: 24px; right: 24px; bottom: 24px; background: #FFFFFF; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; max-width: 460px">
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; font-weight: 300; color: #3D4A40">It is our mission to collaborate with other health care providers to mediate conflict and facilitate positive change, as educators and information specialists empowering others.</p>
+      </div>
+    </div>
+    <div style="flex: 1 1 420px; border: 1px solid #E2EBE4; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 32px">
+      <p style="margin: 0; font-size: 16px; line-height: 1.6; font-weight: 300; color: #3D4A40">Working in direct advocate environments, helping to shape the conditions and the access to a safe and pure product, assuring high quality standards.</p>
+      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+        <li style="padding: 16px 0; border-top: 1px solid #E2EBE4; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: 20px; color: #162311">Hospitals</li>
+        <li style="padding: 16px 0; border-top: 1px solid #E2EBE4; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: 20px; color: #162311">Community health centers</li>
+        <li style="padding: 16px 0; border-top: 1px solid #E2EBE4; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: 20px; color: #162311">Long-term care facilities</li>
+        <li style="padding: 16px 0; border-top: 1px solid #E2EBE4; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: 20px; color: #162311">Non-profit patient services programs</li>
+        <li style="padding: 16px 0; border-top: 1px solid #E2EBE4; border-bottom: 1px solid #E2EBE4; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: 20px; color: #162311">Private, independent practitioners</li>
+      </ul>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <p style="margin: 0; font-size: 14px; font-weight: 400; color: #3D4A40">Let us know how our community can assist your current needs.</p>
+        <a class="pill" href="mailto:community@ankor-bio.com" style="align-self: flex-start; display: flex; align-items: center; gap: 4px; text-decoration: none">
+          <span class="pill-label" style="background: #517A5F; color: #FFFFFF; font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; padding: 0 20px; height: 44px; display: flex; align-items: center; border-radius: 999px">community@ankor-bio.com</span>
+          <span class="pill-icon" style="background: #517A5F; width: 44px; height: 44px; border-radius: 999px; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS DEVELOPMENT (dark) -->
+<section id="business" style="position: relative; overflow: hidden; background: #252526">
+  <img src="/img/back-3.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.55">
+  <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22, 35, 17, 0.55) 0%, rgba(22, 35, 17, 0.88) 100%)"></div>
+  <div style="position: relative; max-width: 1360px; margin: 0 auto; padding: 120px 40px; display: flex; flex-direction: column; gap: 64px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px">
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px">
+        <div style="display: flex; align-items: center; gap: 10px">
+          
+          <span style="font-family: 'Chivo', sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #DDE7DF">Business development</span>
+        </div>
+        <h2 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: clamp(40px, 4.6vw, 64px); line-height: 1; color: #FFFFFF">From growing to extract and packing.</h2>
+      </div>
+      <p style="margin: 0; max-width: 420px; font-size: 16px; line-height: 1.6; font-weight: 300; color: #DDE7DF">We entail tasks and processes to develop and implement growth opportunities within and between your organization. An A–Z responsive and adaptive partner in the industry for:</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+      <div style="border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 48px">
+        <span style="font-family: 'Chivo', sans-serif; font-size: 13px; color: #7BC196">01</span>
+        <h3 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 26px; color: #FFFFFF">Distributors</h3>
+      </div>
+      <div style="border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 48px">
+        <span style="font-family: 'Chivo', sans-serif; font-size: 13px; color: #7BC196">02</span>
+        <h3 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 26px; color: #FFFFFF">Wholesalers</h3>
+      </div>
+      <div style="border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 48px">
+        <span style="font-family: 'Chivo', sans-serif; font-size: 13px; color: #7BC196">03</span>
+        <h3 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 26px; color: #FFFFFF">Governments and institutions</h3>
+      </div>
+      <div style="border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 48px">
+        <span style="font-family: 'Chivo', sans-serif; font-size: 13px; color: #7BC196">04</span>
+        <h3 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 26px; color: #FFFFFF">Hospitals and clinics</h3>
+      </div>
+    </div>
+    <a class="ghost" href="#contact" style="align-self: flex-start; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 20px; border-radius: 999px; background: #FFFFFF; color: #162311; font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none">Contact our business development team <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#162311" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+  </div>
+</section>
+
+<!-- EXPORT OPPORTUNITIES -->
+<section id="export" style="max-width: 1360px; margin: 0 auto; padding: 120px 40px; display: flex; flex-direction: column; gap: 48px">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px">
+    <div style="flex: 2 1 560px; display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; align-items: center; gap: 10px">
+        
+        <span style="font-family: 'Chivo', sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #3D4A40">Export opportunities</span>
+      </div>
+      <h2 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: clamp(32px, 3.4vw, 46px); line-height: 1.1; color: #162311">Offering our products to communities, advocates, physicians, pharmacies and referral centers around the world.</h2>
+    </div>
+    <div style="flex: 1 1 320px; max-width: 400px; display: flex; flex-direction: column; gap: 16px; padding-top: 36px">
+      <h3 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 22px; color: #162311">A–Z business line</h3>
+      <p style="margin: 0; font-size: 15px; line-height: 1.55; font-weight: 300; color: #3D4A40">Growing solutions, standardized oils, customized formulas and purified preparations. Our experienced team can assist your current needs.</p>
+      <a class="ghost" href="#contact" style="align-self: flex-start; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #C9D6CC; color: #162311; font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none">Talk to our team <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#162311" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+    </div>
+  </div>
+  <div style="height: 1px; background: #E2EBE4"></div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+    <div style="background: #F4F7F4; border-radius: 16px; padding: 28px; display: flex; gap: 16px; align-items: flex-start">
+      <span style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#517A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 14l2 2 4-4"></path></svg></span>
+      <p style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: 21px; line-height: 1.25; color: #162311">Assistance with regulatory documents and certificates</p>
+    </div>
+    <div style="background: #F4F7F4; border-radius: 16px; padding: 28px; display: flex; gap: 16px; align-items: flex-start">
+      <span style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#517A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"></path><path d="M21 4v5h-5"></path></svg></span>
+      <p style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: 21px; line-height: 1.25; color: #162311">Constant information and updates on the industry</p>
+    </div>
+    <div style="background: #F4F7F4; border-radius: 16px; padding: 28px; display: flex; gap: 16px; align-items: flex-start">
+      <span style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#517A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18"></path><path d="M12 3a14 14 0 0 0 0 18"></path></svg></span>
+      <p style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: 21px; line-height: 1.25; color: #162311">Dedicated representatives to receive our products into legal jurisdictions</p>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTORS (CTA) -->
+<section id="investors" style="max-width: 1360px; margin: 0 auto; padding: 0 40px 120px">
+  <div style="position: relative; overflow: hidden; border-radius: 24px; background: #517A5F">
+    <img src="/img/back-1.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.35">
+    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(22, 35, 17, 0.92) 0%, rgba(22, 35, 17, 0.55) 70%)"></div>
+    <div style="position: relative; padding: 72px 56px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 40px">
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 680px">
+        <div style="display: flex; align-items: center; gap: 10px">
+          <span style="width: 8px; height: 8px; border-radius: 999px; background: #7BC196; display: block"></span>
+          <span style="font-family: 'Chivo', sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #DDE7DF">For investors</span>
+        </div>
+        <h2 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: clamp(36px, 4vw, 56px); line-height: 1.02; color: #FFFFFF">A company in constant growth and development.</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; font-weight: 300; color: #DDE7DF">Through enhanced innovation we provide an exciting product portfolio, delivering value through acquisitions, organic initiatives, and financial performance centered on annual recurring revenue and operating cash flows.</p>
+      </div>
+      <a class="ghost" href="#contact" style="display: flex; align-items: center; gap: 8px; height: 48px; padding: 0 22px; border-radius: 999px; background: #FFFFFF; color: #162311; font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none">Contact our specialist area <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#162311" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: #F4F7F4">
+  <div style="max-width: 1360px; margin: 0 auto; padding: 120px 40px; display: flex; flex-wrap: wrap; gap: 16px">
+    <div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 40px; padding-right: 24px">
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; align-items: center; gap: 10px">
+          
+          <span style="font-family: 'Chivo', sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #3D4A40">Contact us</span>
+        </div>
+        <h2 style="margin: 0; font-family: 'Rajdhani', sans-serif; font-weight: 500; font-size: clamp(40px, 4.6vw, 64px); line-height: 1; color: #162311">Please direct your inquiries to our team.</h2>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <a href="mailto:community@ankor-bio.com" style="display: flex; align-items: center; gap: 16px; padding: 20px 0; border-top: 1px solid #D5E0D8; text-decoration: none; color: #162311">
+          <span style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#517A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span>
+          <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Chivo', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #3D4A40">Email</span><span style="font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 22px">community@ankor-bio.com</span></span>
+        </a>
+        <a href="tel:+17194222003" style="display: flex; align-items: center; gap: 16px; padding: 20px 0; border-top: 1px solid #D5E0D8; text-decoration: none; color: #162311">
+          <span style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#517A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg></span>
+          <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Chivo', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #3D4A40">Phone · Mon–Fri 09.00 to 4 PM MST</span><span style="font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 22px">719-422-2003</span></span>
+        </a>
+        <div style="display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-top: 1px solid #D5E0D8; border-bottom: 1px solid #D5E0D8">
+          <span style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#517A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>
+          <span style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Chivo', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #3D4A40">Colorado Springs headquarters · by appointment only</span><span style="font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.2">Citadel Terrace, 685 Citadel Drive East</span><span style="font-size: 15px; font-weight: 300; color: #3D4A40">Colorado Springs, CO 80909, United States</span></span>
+        </div>
+      </div>
+    </div>
+    <div style="flex: 1 1 440px; position: relative; border-radius: 24px; overflow: hidden; min-height: 520px; background: #162311">
+      <img src="/img/side-1.jpg" alt="Edificio Citadel Terrace, sede de Ankor Biosciences en Colorado Springs" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+      <div style="position: absolute; left: 24px; bottom: 24px; background: #FFFFFF; border-radius: 16px; padding: 18px 20px; display: flex; align-items: center; gap: 14px; max-width: 320px">
+        <span style="flex: none; width: 40px; height: 40px; border-radius: 999px; background: #517A5F; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 18px; color: #162311">Citadel Terrace</span><span style="font-size: 13px; font-weight: 400; color: #3D4A40">Colorado Springs, CO</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: #162311; color: #FFFFFF">
+  <div style="max-width: 1360px; margin: 0 auto; padding: 80px 40px 40px; display: flex; flex-direction: column; gap: 56px">
+    <div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between">
+      <div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 24px; max-width: 420px">
+        <img src="/img/anlog-wh.svg" alt="Ankor Biosciences" style="height: 40px; width: auto; align-self: flex-start; display: block">
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; font-weight: 300; color: #C9D6CC">Helping to shape the conditions for consistent and safe hemp-derived products globally.</p>
+      </div>
+      <div style="flex: 2 1 480px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 32px">
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <span style="font-family: 'Chivo', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #9FB5A6">Explore</span>
+          <a href="#about" style="color: #FFFFFF; text-decoration: none; font-size: 14px">About us</a>
+          <a href="#products" style="color: #FFFFFF; text-decoration: none; font-size: 14px">Product pipeline</a>
+          <a href="#advocates" style="color: #FFFFFF; text-decoration: none; font-size: 14px">Advocates community</a>
+          <a href="#investors" style="color: #FFFFFF; text-decoration: none; font-size: 14px">Investors</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <span style="font-family: 'Chivo', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #9FB5A6">Business</span>
+          <a href="#business" style="color: #FFFFFF; text-decoration: none; font-size: 14px">Business development</a>
+          <a href="#export" style="color: #FFFFFF; text-decoration: none; font-size: 14px">Export opportunities</a>
+          <a href="#contact" style="color: #FFFFFF; text-decoration: none; font-size: 14px">Contact us</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <span style="font-family: 'Chivo', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #9FB5A6">Legal</span>
+          <a href="https://ankor-bio.com/sections/legal-1.html" style="color: #FFFFFF; text-decoration: none; font-size: 14px">Terms of use agreement</a>
+          <a href="https://ankor-bio.com/sections/legal-2.html" style="color: #FFFFFF; text-decoration: none; font-size: 14px">Privacy</a>
+          <a href="https://ankor-bio.com/sections/legal-3.html" style="color: #FFFFFF; text-decoration: none; font-size: 14px">Terms of sale / refund policy</a>
+        </div>
+      </div>
+    </div>
+    <p style="margin: 0; border: 1px solid rgba(255, 255, 255, 0.24); border-radius: 14px; padding: 20px 24px; font-family: 'Chivo', sans-serif; font-size: 11px; line-height: 1.7; letter-spacing: 0.03em; text-transform: uppercase; color: #C9D6CC; border-style: none; padding: 0">Food and Drug Administration (FDA) disclosure: these statements have not been evaluated by the FDA and are not intended to diagnose, treat, or cure any disease. Always check with your physician before starting a new dietary supplement program. Leaving our website disclaimer: if we have a research link to a website where we sell products or have product information, the exit disclaimer indicates that when you click OK you will leave ankor-bio.com and visit an external link. Links to any informational websites are provided solely as a service to our users. External links provide additional information that may be useful or interesting and have no affiliation to the promotion, sale and distribution of Ankor Biosciences products. The link does not constitute an endorsement of these organizations by Ankor Biosciences and none should be inferred. Please view our full Terms of Use Agreement for more information and the terms and conditions governing your use of this site.</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.16); font-family: 'Chivo', sans-serif; font-size: 12px; color: #9FB5A6">
+      <span>Copyright © 2026 Ankor Biosciences. All rights reserved.</span>
+      <span>Colorado Springs, CO · United States</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
