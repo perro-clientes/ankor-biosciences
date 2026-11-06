@@ -125,15 +125,12 @@ export const hero = {
   lead: "Bioscience, agriculture, logistics, pharmaceuticals and regulators working together to deliver the best quality and applied sciences.",
   primaryCta: { label: "Business development", href: "#business" },
   secondaryCta: { label: "Export opportunities", href: "#export" },
-  // TODO(cliente): la referencia usa back.jpg ("Hemp seedling growing in dark soil"),
-  // que no está en public/. Se usa back-4.jpg hasta recibirla.
   image: {
-    src: "/others/back-4.jpg",
+    src: "/others/back-1.jpg",
     alt: "Young hemp plants growing in a greenhouse",
     width: 1920,
     height: 1080,
   },
-  // TODO(cliente): confirmar qué sellos incluye logos.svg.
   seals: {
     src: "/others/logos.svg",
     alt: "Certification seals, including USA Grown Hemp",
@@ -165,7 +162,7 @@ export const about = {
     },
   ],
   image: {
-    src: "/others/back-1.jpg",
+    src: "/others/back-4.jpg",
     alt: "Person walking through a hemp field at sunset",
     width: 1920,
     height: 1080,
