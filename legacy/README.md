@@ -9,4 +9,6 @@
 - No están en `public/`: el sitio los sirve desde Supabase vía
   `app/private-info/[file]/route.ts`, no como estáticos.
 
-Pendiente del cPanel: `.htaccess` (puede tener redirects que hoy hacen andar algún QR).
+`.htaccess` es el de `public_html` del cPanel (bajado el 2026-11-08). Solo fuerza
+HTTPS: no tiene redirects de rutas, así que ningún QR depende de una regla oculta.
+En Vercel lo reemplaza el redirect automático de HTTP a HTTPS.
