@@ -39,7 +39,7 @@ function Hero() {
         imageClassName="object-[50%_90%]"
       >
         <div className="absolute inset-x-4 bottom-4 flex flex-wrap items-center justify-between gap-4 md:inset-x-6 md:bottom-6">
-          <OverlayChip className="flex items-center">
+          <OverlayChip className="flex items-center bg-white/0">
             <Image
               src={hero.seals.src}
               alt={hero.seals.alt}
@@ -48,7 +48,7 @@ function Hero() {
               className="h-11 w-auto"
             />
           </OverlayChip>
-          <OverlayChip className="font-ui text-eyebrow tracking-[0.04em]">
+          <OverlayChip className="font-ui text-eyebrow tracking-[0.04em] bg-white/0">
             <p>{hero.caption}</p>
           </OverlayChip>
         </div>

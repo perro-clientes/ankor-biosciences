@@ -1,0 +1,108 @@
+{
+  "description": "URLs de QR impresos que deben responder siempre 200, application/pdf y este SHA-256. No editar a mano.",
+  "source": "https://ankor-bio.com",
+  "capturedAt": "2026-11-08T20:10:52Z",
+  "files": [
+    {
+      "fileName": "AnkorBiosciences-COA-LoteIX-PDFforQrCode.pdf",
+      "path": "/private-info/AnkorBiosciences-COA-LoteIX-PDFforQrCode.pdf",
+      "bytes": 890435,
+      "sha256": "60022dee0e2ac2d8b51cbaf13f426986c0ad9cc82dce90b1d66ad443f0f30c78",
+      "contentType": "application/pdf",
+      "lastModified": "2024-10-28T16:03:14Z"
+    },
+    {
+      "fileName": "AnkorBiosciences-COA-LoteV-PDFforQrCode.pdf",
+      "path": "/private-info/AnkorBiosciences-COA-LoteV-PDFforQrCode.pdf",
+      "bytes": 190734,
+      "sha256": "676605ffe9f6db8eab5bc730329d551b92177002910017d8d3978bfd044f90d0",
+      "contentType": "application/pdf",
+      "lastModified": "2021-11-19T13:04:22Z"
+    },
+    {
+      "fileName": "AnkorBiosciences-COA-LoteVI-PDFforQrCode.pdf",
+      "path": "/private-info/AnkorBiosciences-COA-LoteVI-PDFforQrCode.pdf",
+      "bytes": 676213,
+      "sha256": "ba1677972ac5ad3764415bdefd313de8dd04044d9c958a169715402087e7ca50",
+      "contentType": "application/pdf",
+      "lastModified": "2022-09-21T14:06:27Z"
+    },
+    {
+      "fileName": "AnkorBiosciences-COA-LoteVII-PDFforQrCode.pdf",
+      "path": "/private-info/AnkorBiosciences-COA-LoteVII-PDFforQrCode.pdf",
+      "bytes": 1046235,
+      "sha256": "64014545f22eddf9883be91985076d8e851992f0b2b68dc6830ff98228db46df",
+      "contentType": "application/pdf",
+      "lastModified": "2023-02-01T18:38:52Z"
+    },
+    {
+      "fileName": "AnkorBiosciences-COA-LoteVIII-PDFforQrCode.pdf",
+      "path": "/private-info/AnkorBiosciences-COA-LoteVIII-PDFforQrCode.pdf",
+      "bytes": 969878,
+      "sha256": "7f9c09c1d2ffa1e543341026a1a90680448e120f813fe98ca5d47f2fb650d6ee",
+      "contentType": "application/pdf",
+      "lastModified": "2024-02-16T18:15:38Z"
+    },
+    {
+      "fileName": "AnkorBiosciences-COA-LoteX-PDFforQrCode.pdf",
+      "path": "/private-info/AnkorBiosciences-COA-LoteX-PDFforQrCode.pdf",
+      "bytes": 411656,
+      "sha256": "e633145f92eb2e76547402fc542874aa1a9d3d72a24f6c95fd7b931db87a240e",
+      "contentType": "application/pdf",
+      "lastModified": "2026-06-23T00:13:23Z",
+      "note": "COA completo, lote LE260008. Filas '-THC' sin el glifo Δ."
+    },
+    {
+      "fileName": "AnkorBiosciences-COA-LoteXI-PDFforQrCode.pdf",
+      "path": "/private-info/AnkorBiosciences-COA-LoteXI-PDFforQrCode.pdf",
+      "bytes": 74755,
+      "sha256": "9d24b37b4b8f9dd0edbf9ee078bca7c2ca6b923cdcc63aaae7a9c70dee4a5935",
+      "contentType": "application/pdf",
+      "lastModified": "2026-11-04T18:48:50Z",
+      "note": "Placeholder vacío; QR ya generado. Primer lote a publicar desde la plataforma."
+    },
+    {
+      "fileName": "AnkorBiosciences-COA-PDFforQrCode.pdf",
+      "path": "/private-info/AnkorBiosciences-COA-PDFforQrCode.pdf",
+      "bytes": 185406,
+      "sha256": "873295483d0167e16dd1efcbec4c2c0634a5976364ed12c98bdbeadabfa03b0b",
+      "contentType": "application/pdf",
+      "lastModified": "2019-08-05T18:44:20Z",
+      "note": "El más antiguo."
+    },
+    {
+      "fileName": "AnkorBiosciences-COA2020-LoteIV-PDFforQrCode.pdf",
+      "path": "/private-info/AnkorBiosciences-COA2020-LoteIV-PDFforQrCode.pdf",
+      "bytes": 2215984,
+      "sha256": "6c669436e5cd355b1612014e128312a02677f284fcb1b3bf73edddf0584228d7",
+      "contentType": "application/pdf",
+      "lastModified": "2021-01-08T02:02:40Z",
+      "note": "Esquema de nombre 2020."
+    },
+    {
+      "fileName": "AnkorBiosciences-COA2020-LotePrueba-PDFforQrCode.pdf",
+      "path": "/private-info/AnkorBiosciences-COA2020-LotePrueba-PDFforQrCode.pdf",
+      "bytes": 79991,
+      "sha256": "dffa9926bf20d199826b7fa1dd44686ef87667ab7b0f1f92cecb5f4c9c4bd25e",
+      "contentType": "application/pdf",
+      "lastModified": "2020-12-15T00:55:13Z",
+      "note": "Prueba: confirmar si tiene QR impreso. Se sirve igual."
+    },
+    {
+      "fileName": "AnkorBiosciences-COA2020-PDFforQrCode.pdf",
+      "path": "/private-info/AnkorBiosciences-COA2020-PDFforQrCode.pdf",
+      "bytes": 767736,
+      "sha256": "93f3672843665b3059d33e4c05b35a2e1b3fe315f3026f3d2d01d0a289a00add",
+      "contentType": "application/pdf",
+      "lastModified": "2020-05-08T03:02:42Z"
+    },
+    {
+      "fileName": "AnkorBiosciences-COA2020-V2-PDFforQrCode.pdf",
+      "path": "/private-info/AnkorBiosciences-COA2020-V2-PDFforQrCode.pdf",
+      "bytes": 138936,
+      "sha256": "a8595196cf139ae12e9d4b439bf097d935f1225ffc2905a281e25cc3fe07650b",
+      "contentType": "application/pdf",
+      "lastModified": "2020-08-19T13:03:08Z"
+    }
+  ]
+}

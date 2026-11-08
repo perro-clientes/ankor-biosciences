@@ -9,11 +9,16 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "verify:urls": "tsx scripts/verify-urls.ts",
+    "import:legacy": "tsx --env-file-if-exists=.env.local scripts/import-legacy.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
     "@hookform/resolvers": "^7.0.3",
+    "@supabase/supabase-js": "^2.119.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.1.0",
     "class-variance-authority": "^0.7.1",
@@ -38,7 +43,12 @@
     "eslint-config-next": "16.4.5",
     "prettier": "^3.9.10",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "vitest": "^5.1.0"
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": "24.x"
+  }
 }
