@@ -13,7 +13,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "verify:urls": "tsx scripts/verify-urls.ts",
-    "import:legacy": "tsx scripts/import-legacy.ts"
+    "import:legacy": "tsx --env-file-if-exists=.env.local scripts/import-legacy.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

@@ -7,9 +7,9 @@
  *
  * Requiere las migraciones de la tarea 3 (documents, document_versions, bucket)
  * y en el entorno: NEXT_PUBLIC_SUPABASE_URL y SUPABASE_SERVICE_ROLE_KEY.
- * Cargar con: pnpm import:legacy --env-file=.env.local  (o exportarlas antes).
+ * Las toma de .env.local automáticamente (o exportarlas antes).
  *
- * ⚠️ Todavía no se corrió: el esquema real puede pedir ajustar nombres de columnas.
+ * Esquema: supabase/migrations/20261108000000_coa_platform.sql.
  */
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -106,6 +106,15 @@ async function main() {
       .update({ published_version_id: version.id })
       .eq("id", doc.id);
     if (pubError) throw pubError;
+
+    const { error: auditError } = await db.from("audit_log").insert({
+      actor: null,
+      action: "import_legacy",
+      document_id: doc.id,
+      version_id: version.id,
+      details: { file_name: entry.fileName, sha256: entry.sha256, source: "cPanel" },
+    });
+    if (auditError) throw auditError;
 
     console.log(`+ ${entry.fileName} → "${label}" (${pdfPath})`);
     created++;
