@@ -1,0 +1,4 @@
+{
+  "//": "Fuerza ESM para tsx/Node: @react-pdf/renderer solo funciona importado como ESM. Next y Vitest lo ignoran.",
+  "type": "module"
+}
