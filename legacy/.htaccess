@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^(www\.)?ankor-bio\.com$ [NC]
+RewriteRule ^(.*)$ https://ankor-bio.com/$1 [L,R=301]
+</IfModule>
+RewriteEngine On 
+RewriteCond %{SERVER_PORT} 80
+RewriteCond %{HTTP_HOST} ^(www\.)?ankor-bio\.com
+RewriteRule ^(.*)$ https://www.ankor-bio.com/$1 [R,L]
