@@ -43,3 +43,6 @@ next-env.d.ts
 
 # videos pesados (video-2.mp4 > 100 MB, límite de GitHub)
 public/others/*.mp4
+
+# PDFs generados por pnpm render:coa
+/.coa-preview

@@ -13,11 +13,13 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "verify:urls": "tsx scripts/verify-urls.ts",
-    "import:legacy": "tsx --env-file-if-exists=.env.local scripts/import-legacy.ts"
+    "import:legacy": "tsx --env-file-if-exists=.env.local scripts/import-legacy.ts",
+    "render:coa": "tsx scripts/render-coa.mts"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
     "@hookform/resolvers": "^7.0.3",
+    "@react-pdf/renderer": "^4.9.0",
     "@supabase/supabase-js": "^2.119.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.1.0",
@@ -36,11 +38,13 @@
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
+    "@types/fontkit": "^2.0.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.5",
+    "fontkit": "^2.0.4",
     "prettier": "^3.9.10",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
