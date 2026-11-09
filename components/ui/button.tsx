@@ -94,7 +94,8 @@ function Button({
 
   if (props.href !== undefined) {
     const { href, ...rest } = props as ButtonAsLink;
-    if (isExternal(href)) {
+    // Descargas y pestañas nuevas: <a> común (Link precargaría la ruta).
+    if (isExternal(href) || rest.download !== undefined || rest.target === "_blank") {
       return (
         <a href={href} className={classes} data-slot="button" {...rest}>
           {content}

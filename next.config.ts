@@ -26,6 +26,12 @@ const nextConfig: NextConfig = {
     },
   },
 
+  // Las fuentes del PDF (lib/pdf/fonts) se leen del disco en runtime: incluirlas en
+  // las funciones del panel, que generan el placeholder y los COAs.
+  outputFileTracingIncludes: {
+    "/admin/**": ["./lib/pdf/fonts/**/*"],
+  },
+
   async redirects() {
     // URLs legales del sitio anterior (cPanel). 301 explícito, como pide el plan de migración.
     return [
@@ -41,6 +47,10 @@ const nextConfig: NextConfig = {
       // Evita que los COAs se indexen. No toca cómo se sirven (regla inmutable de /private-info/).
       {
         source: "/private-info/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
+      {
+        source: "/coa/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex" }],
       },
     ];

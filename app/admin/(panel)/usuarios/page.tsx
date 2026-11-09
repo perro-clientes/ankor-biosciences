@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { requireRole } from "@/lib/auth/session";
-import { listPanelUsers, type PanelUserStatus } from "@/lib/auth/users";
+import { USER_STATUS_LABEL } from "@/lib/auth/display";
+import { listPanelUsers } from "@/lib/auth/users";
 import { Badge } from "@/components/ui/badge";
 import { InviteForm } from "./invite-form";
 import { UserRowActions } from "./user-row-actions";
 
 export const metadata: Metadata = { title: "Usuarios" };
-
-const STATUS: Record<PanelUserStatus, string> = {
-  activo: "Activo",
-  pendiente: "Invitación pendiente",
-  "sin-acceso": "Sin acceso",
-};
 
 const fmt = new Intl.DateTimeFormat("es-AR", { dateStyle: "medium", timeZone: "UTC" });
 const date = (iso: string | null) => (iso ? fmt.format(new Date(iso)) : "—");
@@ -42,6 +37,7 @@ async function Users() {
       <h1 className="text-h3 font-semibold text-brand-ink">Usuarios</h1>
 
       <section
+        id="invitar"
         aria-labelledby="invite-title"
         className="flex flex-col gap-4 rounded-card-lg border border-line bg-surface p-6 md:p-8"
       >
@@ -79,7 +75,7 @@ async function Users() {
                           : undefined
                     }
                   >
-                    {STATUS[u.status]}
+                    {USER_STATUS_LABEL[u.status]}
                   </Badge>
                   <span>Invitado: {date(u.invitedAt)}</span>
                   <span>· Último ingreso: {date(u.lastSignInAt)}</span>

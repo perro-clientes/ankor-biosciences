@@ -172,6 +172,15 @@ select pg_temp.expect_error('trigger: un documento publicado no se borra, ni con
 select pg_temp.expect_error('trigger: file_name inmutable, ni con service role',
   $$update public.documents set file_name = 'Otro-PDFforQrCode.pdf'
      where id = '10000000-0000-0000-0000-000000000001'$$);
+select pg_temp.expect_error('trigger: url_prefix inmutable, ni con service role',
+  $$update public.documents set url_prefix = 'private-info'
+     where id = '10000000-0000-0000-0000-000000000001'$$);
+select pg_temp.expect_count('documento nuevo usa /coa/ por defecto',
+  $$select count(*) from public.documents
+     where id = '10000000-0000-0000-0000-000000000001' and url_prefix = 'coa'$$, 1);
+select pg_temp.expect_error('url_prefix inválido se rechaza',
+  $$insert into public.documents (file_name, label, kind, url_prefix)
+    values ('otro.pdf','x','template','docs')$$);
 select pg_temp.expect_error('trigger: audit_log de solo agregar, ni con service role',
   'delete from public.audit_log');
 

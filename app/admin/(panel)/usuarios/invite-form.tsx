@@ -20,6 +20,13 @@ export function InviteForm() {
     if (state.status === "done") formRef.current?.reset();
   }, [state]);
 
+  // "Nuevo usuario" desde el Dashboard llega con #invitar: foco directo en el email.
+  React.useEffect(() => {
+    if (window.location.hash === "#invitar") {
+      document.getElementById("invite-email")?.focus();
+    }
+  }, []);
+
   return (
     <form ref={formRef} action={action} className="flex flex-col gap-4">
       {state.status === "done" && <FormAlert tone="ok">{state.message}</FormAlert>}

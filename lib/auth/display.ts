@@ -9,3 +9,9 @@ export function initialsFor(email: string): string {
   const letters = parts.length > 1 ? parts[0][0] + parts[1][0] : local.slice(0, 2);
   return (letters || "?").toUpperCase();
 }
+
+export const USER_STATUS_LABEL = {
+  activo: "Activo",
+  pendiente: "Invitación pendiente",
+  "sin-acceso": "Sin acceso",
+} as const;
