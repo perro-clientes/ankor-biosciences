@@ -6,7 +6,10 @@ export const LOGIN_PATH = "/admin/login";
 export const HOME_PATH = "/admin";
 export const AUTH_CALLBACK_PATH = "/admin/auth/confirm";
 export const RECOVER_PATH = "/admin/recuperar";
-export const PASSWORD_PATH = "/admin/cuenta/contrasena";
+export const PROFILE_PATH = "/admin/perfil";
+/** Adonde llevan los links de invitación y recupero: Perfil, con el aviso de elegir contraseña. */
+export const PASSWORD_PATH = `${PROFILE_PATH}?contrasena=nueva`;
+export const LOTS_PATH = "/admin/lotes";
 export const USERS_PATH = "/admin/usuarios";
 
 /** Rutas de /admin accesibles sin sesión. */

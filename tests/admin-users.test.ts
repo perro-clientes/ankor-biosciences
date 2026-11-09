@@ -2,6 +2,7 @@
  * Reglas de administración de usuarios y validaciones de contraseña.
  */
 import { describe, expect, it } from "vitest";
+import { initialsFor } from "@/lib/auth/display";
 import { checkRoleChange } from "@/lib/auth/guards";
 import { PASSWORD_MIN, inviteSchema, loginSchema, newPasswordSchema } from "@/lib/auth/schemas";
 
@@ -47,5 +48,16 @@ describe("schemas", () => {
   it("invitación: solo roles válidos", () => {
     expect(inviteSchema.safeParse({ email: "a@b.co", role: "editor" }).success).toBe(true);
     expect(inviteSchema.safeParse({ email: "a@b.co", role: "owner" }).success).toBe(false);
+  });
+});
+
+describe("initialsFor", () => {
+  it.each([
+    ["ana.perez@ankor-bio.com", "AP"],
+    ["fede@perro.agency", "FE"],
+    ["j_smith+coa@example.com", "JS"],
+    ["x@example.com", "X"],
+  ])("%s → %s", (email, expected) => {
+    expect(initialsFor(email)).toBe(expected);
   });
 });

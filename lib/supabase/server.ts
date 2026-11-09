@@ -2,6 +2,7 @@ import "server-only";
 
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
+import { connection } from "next/server";
 import { supabasePublicEnv } from "./env";
 
 /**
@@ -9,6 +10,9 @@ import { supabasePublicEnv } from "./env";
  * que usa el panel. Para Storage y /private-info se usa la service role aparte.
  */
 export async function createSupabaseServerClient() {
+  // Supabase usa Date.now() al leer la sesión: marcar el render como de request
+  // antes de crearlo (si no, Cache Components lo frena al prerenderizar).
+  await connection();
   const { url, anonKey } = supabasePublicEnv();
   const cookieStore = await cookies();
   return createServerClient(url, anonKey, {

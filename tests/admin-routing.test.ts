@@ -6,6 +6,7 @@ import {
   adminRedirect,
   isPublicAdminPath,
   needsPasswordSetup,
+  PASSWORD_PATH,
   safeNextPath,
 } from "@/lib/auth/routing";
 
@@ -70,10 +71,8 @@ describe("recupero e invitaciones", () => {
   });
 
   it("elegir contraseña requiere sesión", () => {
-    expect(adminRedirect("/admin/cuenta/contrasena", false)).toBe(
-      "/admin/login?next=%2Fadmin%2Fcuenta%2Fcontrasena",
-    );
-    expect(safeNextPath("/admin/cuenta/contrasena")).toBe("/admin/cuenta/contrasena");
+    expect(adminRedirect("/admin/perfil", false)).toBe("/admin/login?next=%2Fadmin%2Fperfil");
+    expect(safeNextPath(PASSWORD_PATH)).toBe("/admin/perfil?contrasena=nueva");
   });
 
   it("invitación y recupero llevan a elegir contraseña", () => {
@@ -81,9 +80,7 @@ describe("recupero e invitaciones", () => {
     expect(needsPasswordSetup("recovery")).toBe(true);
     expect(needsPasswordSetup("email")).toBe(false);
     expect(needsPasswordSetup(null)).toBe(false);
-    expect(safeNextPath(null, "/admin/cuenta/contrasena")).toBe("/admin/cuenta/contrasena");
-    expect(safeNextPath("https://evil.com", "/admin/cuenta/contrasena")).toBe(
-      "/admin/cuenta/contrasena",
-    );
+    expect(safeNextPath(null, PASSWORD_PATH)).toBe(PASSWORD_PATH);
+    expect(safeNextPath("https://evil.com", PASSWORD_PATH)).toBe(PASSWORD_PATH);
   });
 });

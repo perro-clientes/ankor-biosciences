@@ -1,18 +1,26 @@
 import "server-only";
 
 import { redirect } from "next/navigation";
+import { cache } from "react";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { LOGIN_PATH } from "./routing";
 
 export type AdminRole = "admin" | "editor";
-export type AdminUser = { id: string; email: string; role: AdminRole | null };
+export type AdminUser = {
+  id: string;
+  email: string;
+  role: AdminRole | null;
+  createdAt: string | null;
+  lastSignInAt: string | null;
+};
 
 /**
  * Data Access Layer del panel: lee la sesión (getUser valida contra Supabase
  * Auth) y el rol en user_roles (RLS: cada uno ve su propia fila).
  * Llamar siempre desde componentes dentro de <Suspense> (Cache Components).
+ * `cache`: una sola consulta por request aunque la usen el layout y la página.
  */
-export async function getAdminUser(): Promise<AdminUser | null> {
+export const getAdminUser = cache(async (): Promise<AdminUser | null> => {
   const supabase = await createSupabaseServerClient();
   const { data, error } = await supabase.auth.getUser();
   if (error || !data.user) return null;
@@ -27,8 +35,10 @@ export async function getAdminUser(): Promise<AdminUser | null> {
     id: data.user.id,
     email: data.user.email ?? "",
     role: (row?.role as AdminRole | undefined) ?? null,
+    createdAt: data.user.created_at ?? null,
+    lastSignInAt: data.user.last_sign_in_at ?? null,
   };
-}
+});
 
 /** Exige sesión. Sin sesión → login. Devuelve el usuario aunque no tenga rol. */
 export async function requireUser(): Promise<AdminUser> {
