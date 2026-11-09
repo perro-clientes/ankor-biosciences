@@ -47,7 +47,7 @@ async function Dashboard({ searchParams }: { searchParams: PageProps<"/admin">["
         countLabel={lots.length === 1 ? "lote" : "lotes"}
         allHref={LOTS_PATH}
         action={
-          <Button href="/admin/lotes/nuevo" icon={Plus}>
+          <Button variant="solid" href="/admin/lotes/nuevo" icon={Plus}>
             Crear
           </Button>
         }
@@ -62,7 +62,7 @@ async function Dashboard({ searchParams }: { searchParams: PageProps<"/admin">["
           countLabel={users.length === 1 ? "cuenta" : "cuentas"}
           allHref={USERS_PATH}
           action={
-            <Button href={`${USERS_PATH}#invitar`} icon={UserPlus}>
+            <Button variant="solid" href={`${USERS_PATH}#invitar`} icon={UserPlus}>
               Nuevo usuario
             </Button>
           }

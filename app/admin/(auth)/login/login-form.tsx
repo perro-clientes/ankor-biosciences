@@ -67,7 +67,7 @@ export function LoginForm() {
         <FieldError id="password-error" message={errors.password} />
       </div>
 
-      <Button type="submit" disabled={pending} icon={null} className="self-start">
+      <Button variant="solid" type="submit" disabled={pending} icon={null} className="self-start">
         {pending ? "Ingresando…" : "Ingresar"}
       </Button>
     </form>

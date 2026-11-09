@@ -55,7 +55,7 @@ export function PasswordForm({ email }: { email: string }) {
         <FieldError id="confirm-error" message={errors.confirm} />
       </div>
 
-      <Button type="submit" disabled={pending} icon={null} className="self-start">
+      <Button variant="solid" type="submit" disabled={pending} icon={null} className="self-start">
         {pending ? "Guardando…" : "Guardar contraseña"}
       </Button>
     </form>

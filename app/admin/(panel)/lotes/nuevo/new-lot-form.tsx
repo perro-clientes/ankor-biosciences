@@ -88,7 +88,7 @@ export function NewLotForm({ fileName, label }: { fileName: string; label: strin
       </div>
 
       <div className="flex flex-wrap items-center gap-4">
-        <Button type="submit" disabled={pending || !confirmed} icon={null}>
+        <Button variant="solid" type="submit" disabled={pending || !confirmed} icon={null}>
           {pending ? "Creando…" : "Crear lote"}
         </Button>
         <Link href="/admin/lotes" className="text-sm text-brand-green underline underline-offset-2">

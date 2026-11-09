@@ -47,7 +47,7 @@ export function RecoverForm() {
         <FieldError id="email-error" message={errors.email} />
       </div>
       <div className="flex flex-wrap items-center gap-4">
-        <Button type="submit" disabled={pending} icon={null}>
+        <Button variant="solid" type="submit" disabled={pending} icon={null}>
           {pending ? "Enviando…" : "Enviarme el link"}
         </Button>
         <Link href={LOGIN_PATH} className="text-sm text-brand-green underline underline-offset-2">

@@ -29,7 +29,7 @@ async function Lots() {
           title="Lotes"
           intro="Cada lote es una URL fija impresa como QR. Lo que cambia es la versión publicada."
         />
-        <Button href="/admin/lotes/nuevo" icon={Plus}>
+        <Button variant="solid" href="/admin/lotes/nuevo" icon={Plus}>
           Nuevo lote
         </Button>
       </div>

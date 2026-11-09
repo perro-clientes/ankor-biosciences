@@ -121,7 +121,13 @@ async function Lot({ params, searchParams }: PageProps<"/admin/lotes/[id]">) {
             dangerouslySetInnerHTML={{ __html: svg }}
           />
           <div className="flex w-full flex-col gap-2">
-            <Button href={`${qrBase}?format=svg`} icon={Download} className="w-full" download>
+            <Button
+              variant="solid"
+              href={`${qrBase}?format=svg`}
+              icon={Download}
+              className="w-full"
+              download
+            >
               SVG para imprenta
             </Button>
             <Button

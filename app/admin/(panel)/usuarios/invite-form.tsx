@@ -54,7 +54,7 @@ export function InviteForm() {
             <option value="admin">Administrador</option>
           </NativeSelect>
         </div>
-        <Button type="submit" disabled={pending} icon={null}>
+        <Button variant="solid" type="submit" disabled={pending} icon={null}>
           {pending ? "Enviando…" : "Invitar"}
         </Button>
       </div>
