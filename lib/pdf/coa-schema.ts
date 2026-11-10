@@ -1,89 +1,87 @@
 import { z } from "zod";
 
 /**
- * Datos de un COA (Certificate of Analysis). Mismo schema para el formulario del
- * panel, la vista previa y el PDF publicado. Se guarda tal cual en
+ * COA armado por bloques (formato 2). Mismo modelo para el editor del panel,
+ * la vista previa y el PDF publicado; se guarda tal cual en
  * document_versions.data (jsonb).
  *
- * Los valores de laboratorio son strings: se respetan "ND", "NR", vacíos y la
- * cantidad de decimales que manda el laboratorio (0.000 ≠ 0). Nunca se
- * convierten a número.
+ *   título · líneas de encabezado · tablas · notas · líneas de pie
+ *
+ * Todo es texto: etiquetas, títulos de columna y celdas son editables porque
+ * cambian según el batch. Lo que se escribe es lo que sale en el PDF (la red de
+ * seguridad es la vista previa y volver a una versión anterior).
+ * Fijos de la hoja: logo, marca de agua y disclaimer de la FDA.
  */
 
-export const RESULTS = ["Pass", "Fail", "Tested", "N/A"] as const;
-export const resultSchema = z.enum(RESULTS);
-export type CoaResult = z.infer<typeof resultSchema>;
+export const COA_FORMAT = 2;
 
-const isoDate = z
-  .string()
-  .regex(/^\d{4}-\d{2}-\d{2}$/, "Use the format YYYY-MM-DD.")
-  .refine((v) => !Number.isNaN(Date.parse(`${v}T00:00:00Z`)), "Invalid date.");
+const text = (max: number, what: string) =>
+  z.string().max(max, `${what}: máximo ${max} caracteres.`);
 
-const text = (max: number) => z.string().trim().max(max);
-const required = (max: number, message: string) => text(max).min(1, message);
-
-/** Valor de laboratorio: número, ND, NR, <LOQ o vacío. */
-const labValue = text(24).refine(
-  (v) => v === "" || /^(ND|NR|<LOQ|N\/A)$/i.test(v) || /^[<>]?-?\d+(\.\d+)?$/.test(v),
-  'Use a number, "ND", "NR", "<LOQ" or leave it empty.',
-);
-
-/** Total del overview: número o ND (obligatorio). */
-const overviewValue = text(24).refine(
-  (v) => /^(ND|NR)$/i.test(v) || /^-?\d+(\.\d+)?$/.test(v),
-  'Use a number or "ND".',
-);
-
-export const analyteSchema = z.object({
-  name: required(40, "Analyte name is required."),
-  mgPerPkg: labValue,
-  percent: labValue,
-  mgPerMl: labValue,
-  lod: labValue,
-  loq: labValue,
-  result: resultSchema,
+export const lineSchema = z.object({
+  label: text(80, "Etiqueta"),
+  value: text(240, "Valor"),
 });
-export type Analyte = z.infer<typeof analyteSchema>;
+export type CoaLine = z.infer<typeof lineSchema>;
+
+export const tableSchema = z
+  .object({
+    /** Id estable para el editor (no sale en el PDF). */
+    id: z.string().min(1).max(40),
+    title: text(200, "Título de tabla"),
+    columns: z
+      .array(text(60, "Título de columna"))
+      .min(1, "Una tabla necesita al menos una columna.")
+      .max(12, "Máximo 12 columnas."),
+    rows: z.array(z.array(text(160, "Celda"))).max(300, "Máximo 300 filas."),
+  })
+  .refine((t) => t.rows.every((r) => r.length === t.columns.length), {
+    message: "Todas las filas tienen que tener la misma cantidad de celdas que columnas.",
+    path: ["rows"],
+  });
+export type CoaTable = z.infer<typeof tableSchema>;
 
 export const coaSchema = z
   .object({
-    header: z.object({
-      lotNumber: required(40, "Lot number is required."),
-      sampleNumber: required(120, "Oil batch sample number is required."),
-      dateReceived: isoDate,
-      expirationDate: isoDate,
-      /** Texto que sigue al vencimiento, sin asterisco (ej. "Under Sealed Conditions"). */
-      expirationNote: text(80),
-    }),
-    overview: z.object({
-      totalThc: overviewValue,
-      totalCbd: overviewValue,
-      totalCannabinoids: overviewValue,
-      sumCannabinoids: overviewValue,
-    }),
-    batch: z.object({
-      overall: z.enum(["Pass", "Fail"]),
-      potency: resultSchema,
-      solvents: resultSchema,
-      metals: resultSchema,
-      microbial: resultSchema,
-      mycotoxins: resultSchema,
-      pesticides: resultSchema,
-    }),
-    assay: z.object({
-      code: required(40, "Assay code is required."),
-      name: required(60, "Assay name is required."),
-      /** Fecha y hora local del ensayo, sin zona: YYYY-MM-DDTHH:mm[:ss]. */
-      testedAt: z
-        .string()
-        .regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?$/, "Use the format YYYY-MM-DDTHH:mm."),
-      timeZone: required(8, "Time zone is required (e.g. PDT)."),
-    }),
-    analytes: z.array(analyteSchema).min(1, "Add at least one analyte.").max(80),
+    format: z.literal(COA_FORMAT),
+    title: text(160, "Título"),
+    header: z.array(lineSchema).max(30, "Máximo 30 líneas de encabezado."),
+    tables: z.array(tableSchema).max(20, "Máximo 20 tablas."),
+    notes: text(4000, "Notas"),
+    footer: z.array(lineSchema).max(8, "Máximo 8 líneas de pie."),
   })
-  .refine((c) => c.header.expirationDate > c.header.dateReceived, {
-    message: "Expiration date must be after the date received.",
-    path: ["header", "expirationDate"],
+  .refine((d) => d.header.length + d.tables.length > 0, {
+    message: "El COA está vacío: agregá al menos una línea de encabezado o una tabla.",
+    path: ["tables"],
   });
+export type CoaDoc = z.infer<typeof coaSchema>;
 
-export type CoaData = z.infer<typeof coaSchema>;
+/** ¿Es un COA del formato actual? (los borradores viejos del formulario fijo no lo son). */
+export function isCoaDoc(data: unknown): data is CoaDoc {
+  return (
+    typeof data === "object" &&
+    data !== null &&
+    (data as { format?: unknown }).format === COA_FORMAT
+  );
+}
+
+/** Mensajes legibles para el editor: "Tabla 2 · fila 3: …". */
+export function describeIssues(issues: z.core.$ZodIssue[]): string[] {
+  return issues.map((issue) => {
+    const [section, index, field] = issue.path;
+    const n = typeof index === "number" ? index + 1 : null;
+    const where =
+      section === "tables" && n
+        ? `Tabla ${n}${field === "rows" ? " · filas" : field === "columns" ? " · columnas" : ""}`
+        : section === "header" && n
+          ? `Encabezado · línea ${n}`
+          : section === "footer" && n
+            ? `Pie · línea ${n}`
+            : section === "title"
+              ? "Título"
+              : section === "notes"
+                ? "Notas"
+                : "COA";
+    return `${where}: ${issue.message}`;
+  });
+}

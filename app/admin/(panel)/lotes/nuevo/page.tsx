@@ -37,7 +37,12 @@ async function NewLot() {
         intro="Te proponemos el siguiente número de lote. Revisalo antes de confirmar."
       />
       <section className="max-w-2xl rounded-card-lg border border-line bg-surface p-6 md:p-8">
-        <NewLotForm fileName={suggestion.fileName} label={suggestion.label} />
+        {/* key: con <Activity> el form conserva su estado; si cambia la sugerencia, se reinicia. */}
+        <NewLotForm
+          key={suggestion.fileName}
+          fileName={suggestion.fileName}
+          label={suggestion.label}
+        />
       </section>
     </div>
   );

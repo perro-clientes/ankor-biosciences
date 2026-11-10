@@ -4,7 +4,9 @@ import * as React from "react";
 import type { FormState } from "@/lib/auth/actions";
 import { resendInvite, setUserRole } from "@/lib/auth/users-actions";
 import type { PanelUser } from "@/lib/auth/users";
+import { useConfirm } from "@/components/admin/confirm";
 import { FormAlert } from "@/components/admin/form-bits";
+import { useToast } from "@/components/admin/toast";
 import { Button } from "@/components/ui/button";
 import { NativeSelect } from "@/components/ui/native-select";
 
@@ -16,19 +18,40 @@ export function UserRowActions({ user, isSelf }: { user: PanelUser; isSelf: bool
     resendInvite,
     initialState,
   );
-  const state = inviteState.status !== "idle" ? inviteState : roleState;
+  const [, startTransition] = React.useTransition();
+  const confirm = useConfirm();
+  const toast = useToast();
 
-  const confirmRemoval = (event: React.FormEvent<HTMLFormElement>) => {
-    const role = new FormData(event.currentTarget).get("role");
-    if (role === "none" && !window.confirm(`¿Quitarle el acceso al panel a ${user.email}?`)) {
-      event.preventDefault();
+  // Éxitos → toast; errores → aviso junto a la fila.
+  React.useEffect(() => {
+    if (roleState.status === "done") toast({ message: roleState.message });
+  }, [roleState, toast]);
+  React.useEffect(() => {
+    if (inviteState.status === "done") toast({ message: inviteState.message });
+  }, [inviteState, toast]);
+  const error =
+    inviteState.status === "error" ? inviteState : roleState.status === "error" ? roleState : null;
+
+  const onRoleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    if (formData.get("role") === "none") {
+      const ok = await confirm({
+        title: `¿Quitarle el acceso a ${user.email}?`,
+        description:
+          "No va a poder ingresar al panel. Para devolvérselo, volvé a invitarlo desde esta pantalla.",
+        confirmLabel: "Quitar acceso",
+        tone: "danger",
+      });
+      if (!ok) return;
     }
+    startTransition(() => roleAction(formData));
   };
 
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-wrap items-center gap-2">
-        <form action={roleAction} onSubmit={confirmRemoval} className="flex items-center gap-2">
+        <form action={roleAction} onSubmit={onRoleSubmit} className="flex items-center gap-2">
           <input type="hidden" name="userId" value={user.id} />
           <NativeSelect
             name="role"
@@ -56,9 +79,7 @@ export function UserRowActions({ user, isSelf }: { user: PanelUser; isSelf: bool
           </form>
         )}
       </div>
-      {state.status !== "idle" && (
-        <FormAlert tone={state.status === "done" ? "ok" : "error"}>{state.message}</FormAlert>
-      )}
+      {error && <FormAlert tone="error">{error.message}</FormAlert>}
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 import { requireUser } from "@/lib/auth/session";
 import { AdminBrand } from "@/components/admin/brand";
+import { ConfirmProvider } from "@/components/admin/confirm";
+import { ToastProvider } from "@/components/admin/toast";
 import { Sidebar } from "@/components/admin/sidebar";
 import { UserMenu } from "@/components/admin/user-menu";
 
@@ -32,7 +34,11 @@ async function PanelShell({ children }: { children: React.ReactNode }) {
           <Sidebar role={user.role} />
         </aside>
         <main id="main" className="w-full min-w-0 flex-1 px-5 py-8 md:px-10 md:py-10">
-          <div className="mx-auto w-full max-w-5xl">{children}</div>
+          <ToastProvider>
+            <ConfirmProvider>
+              <div className="mx-auto w-full max-w-5xl">{children}</div>
+            </ConfirmProvider>
+          </ToastProvider>
         </main>
       </div>
     </>

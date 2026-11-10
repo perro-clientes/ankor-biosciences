@@ -2,16 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { ChevronLeft, Download, ExternalLink } from "lucide-react";
+import { ChevronLeft, Download, ExternalLink, FilePenLine, Upload } from "lucide-react";
 import { requireRole } from "@/lib/auth/session";
+import { editorState, listCoaSources } from "@/lib/coa/service";
 import { publicPdfPath, publicPdfUrl } from "@/lib/lots/naming";
 import { qrSvg } from "@/lib/lots/qr";
 import { getLot } from "@/lib/lots/queries";
+import { CoaStartDialog } from "@/components/admin/coa-start";
 import { CopyButton } from "@/components/admin/copy-button";
 import { FormAlert } from "@/components/admin/form-bits";
 import { KIND_LABEL, LotStatusBadge, shortDate } from "@/components/admin/lot-status";
 import { NoAccess } from "@/components/admin/no-access";
 import { Button } from "@/components/ui/button";
+import { RepublishButton } from "./republish-button";
 
 export const metadata: Metadata = { title: "Lote" };
 
@@ -30,9 +33,18 @@ async function Lot({ params, searchParams }: PageProps<"/admin/lotes/[id]">) {
   if (!allowed) return <NoAccess email={user.email} />;
 
   const { id } = await params;
-  const created = (await searchParams).creado === "1";
-  const lot = await getLot(id);
-  if (!lot) notFound();
+  const query = await searchParams;
+  const created = query.creado === "1";
+  const published = typeof query.publicado === "string" ? query.publicado : null;
+  const [lot, editor] = await Promise.all([getLot(id), editorState(id)]);
+  if (!lot || !editor) notFound();
+  const sources = editor.data
+    ? []
+    : (await listCoaSources(lot.id)).map((s) => ({
+        documentId: s.documentId,
+        label: s.label,
+        version: s.version,
+      }));
 
   const url = publicPdfUrl(lot.fileName, lot.urlPrefix);
   const svg = await qrSvg(lot.fileName, lot.urlPrefix);
@@ -55,9 +67,28 @@ async function Lot({ params, searchParams }: PageProps<"/admin/lotes/[id]">) {
         </FormAlert>
       )}
 
-      <div className="flex flex-wrap items-center gap-3">
-        <h1 className="text-h3 font-semibold text-brand-ink">{lot.label}</h1>
-        <LotStatusBadge status={lot.status} />
+      {published && (
+        <FormAlert tone="ok">Versión {published} publicada. La URL del QR ya la muestra.</FormAlert>
+      )}
+
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center gap-3">
+          <h1 className="text-h3 font-semibold text-brand-ink">{lot.label}</h1>
+          <LotStatusBadge status={lot.status} />
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {editor.data ? (
+            <Button href={`/admin/lotes/${lot.id}/coa`} variant="solid" icon={FilePenLine}>
+              {editor.source === "borrador" ? "Seguir borrador" : "Editar COA"}
+            </Button>
+          ) : (
+            // Sin COA cargado todavía: modal para elegir plantilla base o copiar de otro lote.
+            <CoaStartDialog documentId={lot.id} sources={sources} />
+          )}
+          <Button href={`/admin/lotes/${lot.id}/subir`} variant="outline" icon={Upload}>
+            Subir PDF
+          </Button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_320px]">
@@ -173,12 +204,33 @@ async function Lot({ params, searchParams }: PageProps<"/admin/lotes/[id]">) {
                     : ""}
                 </span>
               </span>
-              <span className="text-ink-muted">{kb(v.sizeBytes)}</span>
+              <span className="flex items-center gap-2">
+                <span className="text-ink-muted">{kb(v.sizeBytes)}</span>
+                {v.sizeBytes ? (
+                  <Button
+                    href={`/admin/lotes/${lot.id}/versiones/${v.version}/pdf`}
+                    variant="ghost"
+                    icon={ExternalLink}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Ver
+                  </Button>
+                ) : (
+                  <Button href={`/admin/lotes/${lot.id}/coa`} variant="ghost" icon={null}>
+                    Seguir
+                  </Button>
+                )}
+                {v.publishedAt && v.id !== lot.publishedVersionId && (
+                  <RepublishButton documentId={lot.id} versionId={v.id} version={v.version} />
+                )}
+              </span>
             </li>
           ))}
         </ul>
         <p className="mt-4 text-sm font-normal text-ink-muted">
-          Cargar los datos del COA y publicar una versión nueva: próximamente.
+          Corregir un COA publica una versión nueva; las anteriores quedan guardadas y se pueden
+          volver a publicar.
         </p>
       </section>
     </div>
