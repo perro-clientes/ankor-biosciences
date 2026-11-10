@@ -26,6 +26,18 @@ const nextConfig: NextConfig = {
     },
   },
 
+  // "Subir PDF" (plan B) y el formulario del COA mandan el archivo/los datos por
+  // Server Action. Vercel corta los requests a ~4,5 MB: el límite queda en 4 MB.
+  experimental: {
+    serverActions: { bodySizeLimit: "4.1mb" },
+  },
+
+  // Las fuentes del PDF (lib/pdf/fonts) se leen del disco en runtime: incluirlas en
+  // las funciones del panel, que generan el placeholder y los COAs.
+  outputFileTracingIncludes: {
+    "/admin/**": ["./lib/pdf/fonts/**/*"],
+  },
+
   async redirects() {
     // URLs legales del sitio anterior (cPanel). 301 explícito, como pide el plan de migración.
     return [
@@ -41,6 +53,10 @@ const nextConfig: NextConfig = {
       // Evita que los COAs se indexen. No toca cómo se sirven (regla inmutable de /private-info/).
       {
         source: "/private-info/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
+      {
+        source: "/coa/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex" }],
       },
     ];

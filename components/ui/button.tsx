@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
  * - primary: píldora verde + flecha en un círculo separado (como la referencia).
  * - outline: borde line-strong, hover surface-tint.
  * - inverse: fondo blanco, para usar sobre oscuro.
+ * - solid: botón principal del panel /admin (una sola píldora, ícono a la derecha).
  * - ghost: sin fondo (íconos, cierre del menú).
  * Con `href` renderiza un Link (rutas internas) o un <a> (mailto:, tel:, http).
  */
@@ -19,6 +20,8 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: "gap-1",
+        /** Panel /admin: una sola píldora, ícono a la derecha. Sin el círculo separado del sitio. */
+        solid: "gap-2 bg-primary text-primary-foreground hover:bg-brand-ink",
         outline: "gap-2 border border-line-strong bg-surface text-brand-ink hover:bg-surface-tint",
         inverse: "gap-2 bg-surface text-brand-ink hover:bg-surface-tint",
         ghost: "gap-2 text-brand-ink hover:bg-surface-tint",
@@ -30,8 +33,8 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
-      { variant: ["outline", "inverse", "ghost"], size: "default", className: "px-5" },
-      { variant: ["outline", "inverse", "ghost"], size: "lg", className: "px-6" },
+      { variant: ["outline", "inverse", "ghost", "solid"], size: "default", className: "px-5" },
+      { variant: ["outline", "inverse", "ghost", "solid"], size: "lg", className: "px-6" },
     ],
     defaultVariants: { variant: "primary", size: "default" },
   },
@@ -94,7 +97,8 @@ function Button({
 
   if (props.href !== undefined) {
     const { href, ...rest } = props as ButtonAsLink;
-    if (isExternal(href)) {
+    // Descargas y pestañas nuevas: <a> común (Link precargaría la ruta).
+    if (isExternal(href) || rest.download !== undefined || rest.target === "_blank") {
       return (
         <a href={href} className={classes} data-slot="button" {...rest}>
           {content}
